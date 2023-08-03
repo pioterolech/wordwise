@@ -6,7 +6,7 @@ final class AppDependencies {
 
     func register() {
         container.register(OpenAIToken.self) { _ in
-            OpenAIToken(value: "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")
+            OpenAIToken(value: "")
         }
         
         container.register(OpenAI.self) { r in
