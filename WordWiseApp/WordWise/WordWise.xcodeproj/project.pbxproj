@@ -14,6 +14,9 @@
 		B832E7B92A7BB36300DAD087 /* WordWiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832E7B82A7BB36300DAD087 /* WordWiseTests.swift */; };
 		B832E7C32A7BB36300DAD087 /* WordWiseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832E7C22A7BB36300DAD087 /* WordWiseUITests.swift */; };
 		B832E7C52A7BB36300DAD087 /* WordWiseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832E7C42A7BB36300DAD087 /* WordWiseUITestsLaunchTests.swift */; };
+		B832E7D32A7BBA4F00DAD087 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B832E7D22A7BBA4F00DAD087 /* ComposableArchitecture */; };
+		B832E7D72A7BBAEC00DAD087 /* WordExportFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832E7D62A7BBAEC00DAD087 /* WordExportFeature.swift */; };
+		B832E7D92A7BBE8A00DAD087 /* WordExportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832E7D82A7BBE8A00DAD087 /* WordExportListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,8 @@
 		B832E7BE2A7BB36300DAD087 /* WordWiseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordWiseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B832E7C22A7BB36300DAD087 /* WordWiseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordWiseUITests.swift; sourceTree = "<group>"; };
 		B832E7C42A7BB36300DAD087 /* WordWiseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordWiseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B832E7D62A7BBAEC00DAD087 /* WordExportFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordExportFeature.swift; sourceTree = "<group>"; };
+		B832E7D82A7BBE8A00DAD087 /* WordExportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordExportListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B832E7D32A7BBA4F00DAD087 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +101,7 @@
 		B832E7A52A7BB36200DAD087 /* WordWise */ = {
 			isa = PBXGroup;
 			children = (
+				B832E7D42A7BBAA000DAD087 /* Functionalities */,
 				B832E7A62A7BB36200DAD087 /* WordWiseApp.swift */,
 				B832E7A82A7BB36200DAD087 /* ContentView.swift */,
 				B832E7AA2A7BB36300DAD087 /* Assets.xcassets */,
@@ -129,6 +136,23 @@
 			path = WordWiseUITests;
 			sourceTree = "<group>";
 		};
+		B832E7D42A7BBAA000DAD087 /* Functionalities */ = {
+			isa = PBXGroup;
+			children = (
+				B832E7D52A7BBAC900DAD087 /* WordExport */,
+			);
+			path = Functionalities;
+			sourceTree = "<group>";
+		};
+		B832E7D52A7BBAC900DAD087 /* WordExport */ = {
+			isa = PBXGroup;
+			children = (
+				B832E7D62A7BBAEC00DAD087 /* WordExportFeature.swift */,
+				B832E7D82A7BBE8A00DAD087 /* WordExportListView.swift */,
+			);
+			path = WordExport;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +169,9 @@
 			dependencies = (
 			);
 			name = WordWise;
+			packageProductDependencies = (
+				B832E7D22A7BBA4F00DAD087 /* ComposableArchitecture */,
+			);
 			productName = WordWise;
 			productReference = B832E7A32A7BB36200DAD087 /* WordWise.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +244,9 @@
 				Base,
 			);
 			mainGroup = B832E79A2A7BB36200DAD087;
+			packageReferences = (
+				B832E7D12A7BBA4F00DAD087 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = B832E7A42A7BB36200DAD087 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B832E7D92A7BBE8A00DAD087 /* WordExportListView.swift in Sources */,
 				B832E7A92A7BB36200DAD087 /* ContentView.swift in Sources */,
 				B832E7A72A7BB36200DAD087 /* WordWiseApp.swift in Sources */,
+				B832E7D72A7BBAEC00DAD087 /* WordExportFeature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B832E7D12A7BBA4F00DAD087 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B832E7D22A7BBA4F00DAD087 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B832E7D12A7BBA4F00DAD087 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B832E79B2A7BB36200DAD087 /* Project object */;
 }
