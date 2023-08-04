@@ -23,7 +23,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "OpenAIClient",
-            dependencies: ["Swinject", "OpenAI"]),
+            dependencies: ["Swinject", "OpenAI"],
+            resources: [.process("Resources")]),
         .testTarget(
             name: "OpenAIClientTests",
             dependencies: ["OpenAIClient"]),

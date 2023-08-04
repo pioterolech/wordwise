@@ -7,10 +7,10 @@ final class AppDependencies {
 
     func register() {
         container.register(Config.self) { _ in
-            guard let configUrl = Bundle.main.url(forResource: "config", withExtension: "json") else {
+            guard let configUrl = Bundle.module.url(forResource: "config", withExtension: "json") else {
                 return .empty
             }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let data = try Data(contentsOf: configUrl)
