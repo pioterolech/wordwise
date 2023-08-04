@@ -1,17 +1,29 @@
 import Swinject
 import OpenAI
+import Foundation
 
 final class AppDependencies {
     private let container = Container()
 
     func register() {
-        container.register(OpenAIToken.self) { _ in
-            OpenAIToken(value: "")
+        container.register(Config.self) { _ in
+            guard let configUrl = Bundle.main.url(forResource: "config", withExtension: "json") else {
+                return .empty
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let data = try Data(contentsOf: configUrl)
+                let decodedConfig = try decoder.decode(Config.self, from: data)
+                return decodedConfig
+            } catch {
+                return .empty
+            }
         }
         
         container.register(OpenAI.self) { r in
-            let token = r.resolve(OpenAIToken.self)!
-            return OpenAI(apiToken: token.value)
+            let config = r.resolve(Config.self)!
+            return OpenAI(apiToken: config.openAIKey)
         }
         
         container.register(OpenAIClient.self) { r in
@@ -20,7 +32,6 @@ final class AppDependencies {
     }
     
     func resolve<T>() -> T {
-        
-        return container.resolve(T.self)!
+        container.resolve(T.self)!
     }
 }
